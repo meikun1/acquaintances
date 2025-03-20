@@ -1,5 +1,6 @@
 package com.example.client_serverdatingapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,20 +32,29 @@ class VerifyActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            ApiClient.instance.verify(VerifyRequest(email!!, code)).enqueue(object : Callback<VerifyResponse> {
-                override fun onResponse(call: Call<VerifyResponse>, response: Response<VerifyResponse>) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@VerifyActivity, "Успешно!", Toast.LENGTH_SHORT).show()
-                        // Тут можно перейти в главное меню приложения
-                    } else {
-                        Toast.makeText(this@VerifyActivity, "Неверный код", Toast.LENGTH_SHORT).show()
+            ApiClient.instance.verify(VerifyRequest(email!!, code))
+                .enqueue(object : Callback<VerifyResponse> {
+                    override fun onResponse(
+                        call: Call<VerifyResponse>,
+                        response: Response<VerifyResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(this@VerifyActivity, "Успешно!", Toast.LENGTH_SHORT)
+                                .show()
+                            // Переход на главную страницу (MainActivity)
+                            val intent = Intent(this@VerifyActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()  // Закрываем VerifyActivity, чтобы не вернуться назад
+                        } else {
+                            Toast.makeText(this@VerifyActivity, "Неверный код", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {
-                    Toast.makeText(this@VerifyActivity, "Ошибка сети", Toast.LENGTH_SHORT).show()
-                }
-            })
+                    override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {
+                        Toast.makeText(this@VerifyActivity, "Ошибка сети", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
         }
-    }
-}
+    }}

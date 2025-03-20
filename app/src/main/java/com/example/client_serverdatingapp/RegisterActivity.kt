@@ -30,22 +30,35 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            ApiClient.instance.register(RegisterRequest(email)).enqueue(object : Callback<RegisterResponse> {
-                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@RegisterActivity, "Код отправлен", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@RegisterActivity, VerifyActivity::class.java)
-                        intent.putExtra("email", email)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(this@RegisterActivity, "Ошибка отправки", Toast.LENGTH_SHORT).show()
+            ApiClient.instance.register(RegisterRequest(email))
+                .enqueue(object : Callback<RegisterResponse> {
+                    override fun onResponse(
+                        call: Call<RegisterResponse>,
+                        response: Response<RegisterResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                "Код отправлен",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(this@RegisterActivity, VerifyActivity::class.java)
+                            intent.putExtra("email", email)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                "Ошибка отправки",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                    Toast.makeText(this@RegisterActivity, "Ошибка сети", Toast.LENGTH_SHORT).show()
-                }
-            })
+                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                        Toast.makeText(this@RegisterActivity, "Ошибка сети", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
         }
     }
 }
