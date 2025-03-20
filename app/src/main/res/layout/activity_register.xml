@@ -2,30 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@android:color/darker_gray">
+    android:background="@drawable/image">
 
     <LinearLayout
-        android:layout_width="288dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-    android:background="@drawable/gradient_background"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:elevation="4dp">
+        android:background="@drawable/rounded_container"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:layout_margin="20dp">
 
-    <!-- Ввод Email -->
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient_background"
-        android:hint="Введите Email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:padding="10dp" />
+        <!-- Ввод Email -->
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:gravity="center"/>
 
-    <!-- Кнопка отправки кода -->
+        <!-- Кнопка отправки кода -->
         <Button
             android:id="@+id/sendCodeButton"
             android:layout_width="match_parent"
@@ -33,8 +37,11 @@
             android:layout_marginTop="20dp"
             android:text="Отправить код"
             style="@style/CustomButtonStyle" />
-
-
     </LinearLayout>
 
-    </RelativeLayout>
+</RelativeLayout>
+
+
+
+
+

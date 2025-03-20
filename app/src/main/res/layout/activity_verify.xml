@@ -8,37 +8,42 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#CCFFFFFF"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:elevation="4dp"
-    android:alpha="0.5"
-    android:gravity="center"
-    android:layout_margin="20dp">
+        android:background="@drawable/rounded_container"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:layout_margin="20dp">
 
-    <!-- Ввод кода -->
-    <EditText
-        android:id="@+id/codeInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Введите код"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:background="@android:color/transparent"
-        android:alpha="0.8" />
 
-    <!-- Кнопка подтверждения -->
-    <Button
-        android:id="@+id/verifyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Подтвердить"
-        android:background="@drawable/button_gradient"
-        android:textColor="#FFFFFF"
-        android:alpha="0.8" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/codeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите код"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:gravity="center"/>
 
-    </RelativeLayout>
+
+        <Button
+            android:id="@+id/verifyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Подтвердить"
+            android:background="@drawable/button_gradient"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+    
+       
