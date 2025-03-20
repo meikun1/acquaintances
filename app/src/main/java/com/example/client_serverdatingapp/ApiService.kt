@@ -7,7 +7,7 @@ import retrofit2.http.POST
 import retrofit2.Call
 
 // URL сервера (замени на свой IP, если тестируешь локально)
-private const val BASE_URL = "http://10.0.2.2:3000/"  // Для эмулятора
+private const val BASE_URL = "http://192.168.0.106:3000/"  // Для эмулятора
 
 // Модель данных
 data class RegisterRequest(val email: String)

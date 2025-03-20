@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomButtonStyle">
+        <item name="android:background">@drawable/button_gradient</item> <!-- Применяем фон -->
+        <item name="android:textColor">#FFFFFF</item> <!-- Белый цвет текста -->
+        <item name="android:focusable">false</item> <!-- Отключаем фокус -->
+        <item name="android:clickable">true</item> <!-- Делаем кнопку кликабельной -->
+    </style>
+</resources>
