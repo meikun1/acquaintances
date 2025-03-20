@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import android.util.Log
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var emailInput: EditText
@@ -57,6 +57,8 @@ class RegisterActivity : AppCompatActivity() {
                     override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                         Toast.makeText(this@RegisterActivity, "Ошибка сети", Toast.LENGTH_SHORT)
                             .show()
+                        Log.e("RegisterActivity", "Ошибка сети: ${t.message}")
+                        Toast.makeText(this@RegisterActivity, "Ошибка сети", Toast.LENGTH_SHORT).show()
                     }
                 })
         }
